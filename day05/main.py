@@ -24,7 +24,7 @@ def parse_input(s: str) -> tuple[list[deque[str]], list[tuple[int, int, int]]]:
 
     for row in stack_rows:
         for i in range(0, len(row), 4):
-            stack = row[i: i+3]
+            stack = row[i : i + 3]
             if stack != "   ":
                 stacks[i // 4].appendleft(stack[1])
 
@@ -32,6 +32,7 @@ def parse_input(s: str) -> tuple[list[deque[str]], list[tuple[int, int, int]]]:
         moves.append(tuple(map(int, re.findall(MOVE_RE, row)[0])))
 
     return stacks, cast(list[tuple[int, int, int]], moves)
+
 
 def part_one(s: str) -> str:
     stacks, moves = parse_input(s)
